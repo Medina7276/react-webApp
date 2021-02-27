@@ -1,4 +1,5 @@
 import './App.css';
+import { useState } from "react";
 import { makeStyles } from "@material-ui/core/styles"
 import { 
   BrowserRouter as Router, 
@@ -21,17 +22,17 @@ const useStyles = makeStyles((theme) => ({
   }
 }))
 
-function Login() {
-  return (
-    <div>
-      Login
-    </div>
-  )
-}
+// function Login() {
+//   return (
+//     <div>
+//       Login
+//     </div>
+//   )
+// }
 
 function App() {
   const classes = useStyles();
-  const [isAuth, setIsAuth]
+  const [isAuth, setIsAuth] = useState(true);
   return (
     <Router>
       <div style={{ display: 'flex' }}> 
@@ -79,16 +80,16 @@ function App() {
           </Route>
 
           <Route exact path="/signin">
-            <Login />
-
+            {/* <Login /> */}
+            <button onClick={()=> {setIsAuth(true)}}>Login</button>
+            <button onClick={()=> {setIsAuth(false)}}>Logout</button>
           <Container> 
-            <ProtectedRoute path="/profile" component={Profile} isAuth={} /> 
+            <ProtectedRoute path="/profile" component={Profile} isAuth={isAuth} /> 
             </Container>
           </Route>
         </Switch>
       </div>
     </Router>
-    
   );
 }
 
