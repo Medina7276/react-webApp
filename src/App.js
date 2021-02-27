@@ -1,18 +1,20 @@
 import './App.css';
-import { useState } from "react";
+//import { useState } from "react";
 import { makeStyles } from "@material-ui/core/styles"
 import { 
   BrowserRouter as Router, 
   Switch, Route, Link } from "react-router-dom";
 import { 
   Drawer, List, ListItem, 
-  ListItemIcon, ListItemText,
+  ListItemIcon,
+  // ListItemText,
   Container, Typography,
   } from "@material-ui/core";
 import HomeIcon from "@material-ui/icons/Home";
 import MeetingRoomIcon from '@material-ui/icons/MeetingRoom';
-import ProtectedRoute from './ProtectedRoute'
-import Profile from './pages/Profie'
+//import ProtectedRoute from './ProtectedRoute';
+//import Profile from './pages/Profie';
+import Form from "./Components/Form";
 
 const useStyles = makeStyles((theme) => ({
   drawerPaper: { width: 'inherit' },
@@ -32,7 +34,7 @@ const useStyles = makeStyles((theme) => ({
 
 function App() {
   const classes = useStyles();
-  const [isAuth, setIsAuth] = useState(true);
+  //const [isAuth, setIsAuth] = useState(true);
   return (
     <Router>
       <div style={{ display: 'flex' }}> 
@@ -54,7 +56,7 @@ function App() {
             </ListItem>
             </Link>
 
-            <Link to="/signin" className={classes.link}>
+            <Link to="/signup" className={classes.link}>
             <ListItem button>
               <ListItemIcon>
                 <MeetingRoomIcon />
@@ -63,6 +65,7 @@ function App() {
             </Link>
 
           </List>
+
         </Drawer>
 
         <Switch>
@@ -79,12 +82,12 @@ function App() {
             </Container>
           </Route>
 
-          <Route exact path="/signin">
-            {/* <Login /> */}
-            <button onClick={()=> {setIsAuth(true)}}>Login</button>
-            <button onClick={()=> {setIsAuth(false)}}>Logout</button>
+          <Route exact path="/signup">
+            {/* <button onClick={()=> {setIsAuth(true)}}>Login</button>
+            <button onClick={()=> {setIsAuth(false)}}>Logout</button> */}
           <Container> 
-            <ProtectedRoute path="/profile" component={Profile} isAuth={isAuth} /> 
+            <Form />
+            {/* <ProtectedRoute path="/profile" component={Profile} isAuth={isAuth} />  */}
             </Container>
           </Route>
         </Switch>
