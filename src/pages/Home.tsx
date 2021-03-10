@@ -1,9 +1,14 @@
 import React from 'react';
 
-function Home() {
+// interface Props {
+//   name: string | undefined
+// }
+
+const Home = (props: { name: string} ) => {
+  
   return (
     <div>
-      Home
+      {props.name ? 'Hi' + props.name : 'You are not logged in'}!
     </div>
   );
 }
