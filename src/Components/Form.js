@@ -16,8 +16,8 @@ function Form() {
     const { register, handleSubmit, errors } = useForm({
         resolver: yupResolver(schema),
     });
-    function submitForm(data) {
-        console.log(data);
+    const submitForm = (data) => {
+        console.log(data)
     }
     return (
         <div className="Form">
@@ -35,6 +35,7 @@ function Form() {
                 <input type="text" name="confirmPassword" placeholder="Confirm Password..."  ref={register} />
                 <p> {errors.confirmPassword && "Passwords Should Match!"} </p>
                 <input type="submit" id="submit" />
+                
                 </form>
             </div>
         </div>
