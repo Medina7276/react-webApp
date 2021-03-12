@@ -1,12 +1,9 @@
-import React, {SyntheticEvent, useState} from 'react';
-import {Redirect} from 'react-router-dom'
+import React, {SyntheticEvent} from 'react';
+import { Redirect } from 'react-router-dom'
+import lockdownIcon from 'marialui'
+
 
 function Register() {
-  interface PersonProps {
-    name: string,
-    email: string,
-    password: string
-  }
   const [name, setName] = React.useState<string>();
   const [email, setEmail] = React.useState<string>();
   const [password, setPassword] = React.useState<string>();
@@ -38,6 +35,7 @@ function Register() {
           <input className="form-control" placeholder="Name" required
               onChange={e => setName(e.target.value)}
           />
+          
           <input type="email" className="form-control" placeholder="Email address" required
               onChange={e => setEmail(e.target.value)}
           />
@@ -47,7 +45,10 @@ function Register() {
         
           <button className="w-100 btn btn-lg btn-primary" type="submit">Submit</button>
           <p className="mt-5 mb-3 text-muted">&copy; 2017–2021</p>
-       </form>
+      </form>
+      
+      
+
     </div>
   );
 }
